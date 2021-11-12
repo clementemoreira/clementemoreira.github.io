@@ -34,7 +34,7 @@ function myMove() {
       }
     }
   }else{
-    break;
+    clearInterval(id);
   }
  
 }
