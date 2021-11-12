@@ -14,3 +14,7 @@ function myMove() {
     }
   }
 }
+
+while(true){
+  myMove();
+}
