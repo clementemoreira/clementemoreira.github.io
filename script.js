@@ -9,8 +9,10 @@ function myMove() {
   }else{
     pause=true;
   }
+
+  var elem = document.getElementById("myAnimation");
+
   if(!pause){
-    var elem = document.getElementById("myAnimation");
     clearInterval(id);
     id = setInterval(frame, 10);
     function frame() {
