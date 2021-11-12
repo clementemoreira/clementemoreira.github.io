@@ -2,6 +2,7 @@ var id = null;
 var back = false;
 var pause = true;
 function myMove() {
+  console.log(pause);
   if(pause==true){
     pause=false;
   }else{
