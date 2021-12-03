@@ -33,19 +33,34 @@ function myMove() {
       }
       
       if(back){
-        pos=pos-(50*Math.random());
+        pos=pos-(60*Math.random());
+        if(pos<0){
+          pos=0;
+        }
+        console.log(pos);
         elem.style.top = pos + 'px';
       }else{
-        pos=pos+(50*Math.random());
+        pos=pos+(60*Math.random());
         elem.style.top = pos + 'px';
+        if(pos>350){
+          pos=350;
+        }
       }
 
       if(back1){
-        pos1=pos1-(50*Math.random());
+        pos1=pos1-(60*Math.random());
+        if(pos1<0){
+          pos1=0;
+        }
         elem.style.left = pos1 + 'px';
+        
       }else{
-        pos1=pos1+(50*Math.random());
+        pos1=pos1+(60*Math.random());
+        if(pos1>350){
+          pos1=350;
+        }
         elem.style.left = pos1 + 'px';
+        
       }
 
 
