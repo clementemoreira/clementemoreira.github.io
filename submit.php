@@ -1,29 +1,29 @@
 <?php
-if((empty($_POST['name'])) || (empty($_POST['email'])) || (empty($_POST['message']))){
+
+require_once 'Egoi/Factory.php';
+
+if((empty($_POST['name'])) || (empty($_POST['email'])) ){
 die("<b>ERROR!</b> All fields must be filled.");
 }
 
 $name = $_POST['name'];
 $email = $_POST['email'];
-$message = $_POST['message'];
-$name = strtolower($name);
-$name = ucwords($name);
 
-$to = 'email@example.com';
-$subject = 'Website message from: '.$name;
-$message = 'FROM: '.$name." \nEmail: ".$email."\nMessage: \n".$message;
-$headers = 'From: email@example.com' . "\r\n";
+$apikey = "e2fd7ebb0224595f17c90d4060afa005b9b65170";
 
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) { 
-mail($to, $subject, $message, $headers); 
-echo "Thank you! Your email was sent $name.";
-echo "<br>";
-echo "This is the email you entered: <b>$email</b>";
-}else{
-// echo var_dump($_POST);
-echo "<b>ERROR!</b> Invalid E-mail. Please provide a valid email address. Example: myEmail@example.com";
-echo "<br>";
-echo "The email <b>$email</b> you entered, is not valid.";
-}
+$arguments = array(
+    "apikey" => $apikey,
+    "listID" => 8,
+    "first_name" => $name,
+    "email" => $email,
+    "status" => 1,
+);
+
+// $api = EgoiApiFactory::getApi(Protocol::Soap);
+ $api = (new EgoiApiFactory)->getApi(Protocol::Rest);
+//$api = EgoiApiFactory::getApi(Protocol::XmlRpc);
+$result = $api->addSubscriber($arguments);
+echo print_r($result);
+
 
 ?>
