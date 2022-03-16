@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 
 $(document).ready(function(){
 
     $('#submit').click(function(){
         $('#success').hide(1);
-        $.post("email_ajax.php", $("#contact").serialize(),  function(response) {
+        $.post("submit.php", $("#contact").serialize(),  function(response) {
             $('#success').html(response);
             $('#success').show(1000);
         });
@@ -25,7 +25,7 @@ html {
 height:auto;
 }
 body {
-    background:#000;
+    background:#5edede;
 /*  background: url(bg.png);
     background-repeat:repeat;*/
     margin: 0px;
